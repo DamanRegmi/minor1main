@@ -1,0 +1,659 @@
+body,
+.tooltip {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background-image: linear-gradient(90deg, #89eada 0%, #175261 100%);
+
+}
+
+.header-bar {
+    background-color: #292929;
+}
+
+.container--narrow {
+    max-width: 732px;
+}
+
+.header-search-icon {
+    position: relative;
+    top: 3px;
+}
+
+.header-chat-icon {
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+}
+
+.avatar-small {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    margin-right: 5px;
+    position: relative;
+    top: -3px;
+}
+
+.avatar-tiny {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    margin-right: 4px;
+    position: relative;
+    top: -1px;
+}
+
+.form-control-title {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.body-content {
+    font-size: 1.2rem;
+    line-height: 1.75;
+    color: #292929;
+}
+
+.body-content p,
+.body-content ul,
+.body-content ol {
+    margin-bottom: 1.75rem
+}
+
+.input-dark {
+    background-color: #444;
+    border-color: transparent;
+    color: #FFFFFF;
+}
+
+.input-dark:focus {
+    color: #FFFFFF;
+    background-color: #555;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+.input-dark::-webkit-input-placeholder {
+    color: #888;
+}
+
+.input-dark::-moz-placeholder {
+    color: #888;
+}
+
+.input-dark:-ms-input-placeholder {
+    color: #888;
+}
+
+.input-dark:-moz-placeholder {
+    color: #888;
+}
+
+@media (min-width: 768px) {
+    .input-dark {
+        width: auto;
+    }
+}
+
+.display-3 {
+    font-size: 4.35rem;
+}
+
+@media (max-width: 768px) {
+    .display-3 {
+        font-size: 2.5rem
+    }
+}
+
+.form-group {
+    position: relative;
+}
+
+.liveValidateMessage {
+    transition: all .5s ease-out;
+    top: -6px;
+    position: absolute;
+    z-index: 1;
+    padding-top: 6px;
+    padding-bottom: 16px;
+    opacity: 0;
+    transform: translateY(100%)
+}
+
+.liveValidateMessage--visible {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+.form-group input,
+.form-group textarea {
+    position: relative;
+    z-index: 2;
+}
+
+textarea.tall-textarea {
+    height: 160px;
+}
+
+@media (min-width: 768px) {
+    textarea.tall-textarea {
+        height: 320px;
+    }
+}
+
+.delete-post-button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Search Overaly */
+.search-overlay {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(215, 215, 215, 0.911);
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(1.3);
+    transition: .33s visibility ease-in-out, .33s opacity ease-in-out, .33s transform ease-in-out;
+    will-change: visibility, transform, opacity;
+}
+
+.search-overlay--visible {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.search-overlay-icon {
+    color: #007bff;
+    font-size: 1.4rem;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.live-search-field {
+    background-color: transparent;
+    border: none;
+    font-size: 1.1rem;
+    outline: none;
+    flex: 1;
+    color: #007bff;
+}
+
+.live-search-results {
+    opacity: 0;
+    transition: all .3s ease-out;
+    transform: scale(1.07)
+}
+
+.live-search-results--visible {
+    opacity: 1;
+    transform: scale(1)
+}
+
+.search-overlay-top {
+    background-color: #FFF;
+    /* background-color: rgba(0, 0, 0, .79); */
+}
+
+.search-overlay-top .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.search-overlay-bottom {
+    overflow: auto;
+}
+
+.close-live-search {
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: .75;
+    line-height: 1;
+    color: #292929;
+}
+
+@media (min-width: 700px) {
+    .live-search-field {
+        font-size: 2.5rem;
+    }
+
+    .close-live-search {
+        font-size: 3rem;
+    }
+
+    .search-overlay-icon {
+        font-size: 3rem;
+    }
+}
+
+.close-live-search:hover {
+    opacity: 1;
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.circle-loader {
+    opacity: 0;
+    transition: opacity .45s ease-out, visibility .45s ease-out;
+    visibility: hidden;
+    position: absolute;
+    left: 50%;
+    box-sizing: border-box;
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    border: 10px solid rgba(73, 80, 87, 0.2);
+    border-top-color: #495057;
+    will-change: -webkit-transform, transform;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-animation: spin 1s infinite linear;
+    animation: spin 1s infinite linear;
+}
+
+.circle-loader--visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* End Search Overlay */
+
+/* Chat */
+.chat-wrapper {
+    position: fixed;
+    z-index: 5;
+    bottom: 0;
+    right: 20px;
+    width: 290px;
+    height: 350px;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    transition: all .4s ease-in-out;
+    opacity: 0;
+    transform: translateY(100%)
+}
+
+.chat--visible {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+.chat-title-bar {
+    background-color: #292929;
+    color: #FFF;
+    padding: 4px 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-title-bar-close {
+    opacity: .7;
+    cursor: pointer;
+}
+
+.chat-title-bar-close:hover {
+    opacity: 1;
+}
+
+.chat-log {
+    padding: 8px;
+    flex: 1;
+    overflow: auto;
+}
+
+.chat-self,
+.chat-other {
+    font-size: .75rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+.chat-self {
+    padding-left: 25%;
+}
+
+.chat-self .chat-avatar {
+    margin-left: 6px;
+}
+
+.chat-self .chat-message {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chat-self .chat-message-inner {
+    text-align: right;
+    padding: 4px 7px;
+    border-radius: 12px;
+    background-color: #007bff;
+    color: #FFF;
+}
+
+.chat-other {
+    padding-right: 25%;
+}
+
+.chat-other .chat-avatar {
+    margin-right: 6px;
+}
+
+.chat-other .chat-message {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chat-other .chat-message-inner {
+    padding: 4px 7px;
+    border-radius: 12px;
+    background-color: #f1f0f0;
+}
+
+.chat-message a {
+    color: #212529
+}
+
+.chat-field {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 7px;
+    border: none;
+    outline: none;
+    font-size: .75rem;
+}
+
+.gradient-text {
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* Fallback: Set a background color. */
+    background-color: #461314;
+    
+    /* Create the gradient. */
+     background-image: linear-gradient(
+          45deg,
+          #d68789 16.666%, 
+          #815f55 16.666%, 
+          #c7a59b 33.333%, 
+          #F18F43 33.333%, 
+          #F18F43 50%, 
+          #a5ab93 50%, 
+          #daed9d 66.666%, 
+          #5fa5bc 66.666%, 
+          #7eedd3 83.333%, 
+          #d23fbf 83.333%);
+    
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+  
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    
+    /* Animate the text when loading the element. */
+      /* This animates it on page load and when hovering out. */
+      animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+  
+  }
+
+.header-bar{
+    background-image: linear-gradient(90deg, #459b8d 0%, #0e1213 100%);
+}
+
+.trending{
+    background-image: linear-gradient(90deg, #89eada 0%, #175261 100%);
+
+}
+/* .body-side{
+    background-image: linear-gradient(90deg, #b7cfcc 0%, #175261 100%);
+
+} */
+
+.littleDark{
+    background-image: linear-gradient(90deg, #e1eff0 0%, #f1e2e2 100%);
+
+}
+.littleDark1{
+    background-image: linear-gradient(90deg, #fbfcfc 0%, #c9e3e2 100%);
+
+}
+.titleDark{
+    background-image: linear-gradient(90deg, #dde6e6 0%, #6f7878 100%);
+
+}
+
+.littleDark:hover{
+    background-image: linear-gradient(90deg, #c4d1d1 0%, #d9c6c6 100%);
+    color: #000;
+}
+
+.display-5{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 520;
+    line-height: 1.2;
+    color: #000;
+}
+
+.ttitle{
+    background-color: linear-gradient(90deg, #b7cfcc 0%, #175261 100%);
+        border: 2px solid #000;
+        border-radius: 10px;
+        font-size: 30px;
+        background: -webkit-linear-gradient(#de41cc, #90b6ae);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      
+}
+
+
+  
+  .gradient-text:hover{
+      animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+  }
+  
+  
+  /* Move the background and make it smaller. */
+  /* Animation shown when entering the page and after the hover animation. */
+  @keyframes rainbow-text-simple-animation-rev {
+      0% {
+          background-size: 650%;
+      }
+      40% {
+          background-size: 650%;
+      }
+      100% {
+          background-size: 100%;
+      }
+  }
+  
+  /* Move the background and make it larger. */
+  /* Animation shown when hovering over the text. */
+  @keyframes rainbow-text-simple-animation {
+      0% {
+          background-size: 100%;
+      }
+      80% {
+          background-size: 650%;
+      }
+      100% {
+          background-size: 650%;
+      }
+  }
+
+  .hometitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.9rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #003d50;
+  }
+
+  .bbutton {
+    --c: #c7edf5; /* text color */
+    background-color: linear-gradient( #56e9cc 33%, #fff5, #0000 67%) ;
+    /* background color */
+    
+    background: 
+      linear-gradient(90deg, #56e9cc 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
+      #e90202; /* background color */
+    color: #0000;
+    border: none;
+    transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+    text-shadow: 
+      calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
+      calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+    outline-offset: .1em;
+    transition: 0.3s;
+  }
+  .bbutton:hover,
+  .bbutton:focus-visible {
+    --_p: 0%;
+    --_i: 1;
+  }
+  .bbutton:active {
+    text-shadow: none;
+    color: var(--c);
+    box-shadow: inset 0 0 9e9q #0005;
+    transition: 0s;
+  }
+  
+
+.bbutton {
+    font-family: system-ui, sans-serif;
+    font-weight:bold;
+    font-size: 1.3rem;
+    margin: 0;
+   
+    text-decoration: wavy;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: .1em .3em;
+    border: 1px solid #06c3d8;
+    border-radius: 7px;
+    z-index: 2;
+  }
+
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+  
+  .button {
+    animation: 1.5s ease infinite alternate running shimmer;
+    background: linear-gradient(90deg, #ff7de3 0%, #64E3FF 30%, #9192FF 85%);
+    background-size: 200% 100%;
+    border: none;
+      border-radius: 6px;
+    box-shadow: -2px -2px 10px rgba(255, 227, 126, 0.5), 2px 2px 10px rgba(144, 148, 255, 0.5);
+    color: #170F1E;
+    cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    font-size: 16px;
+      font-weight: 570;
+    line-height: 12px;
+    overflow: hidden;
+    padding: 12px 24px;
+    position: relative;
+    text-decoration: none;
+    transition: 0.2s;
+  
+    &:hover svg {
+      opacity: 0.8;
+      transform: translateX(50px) scale(1.5);
+    }
+    
+    &:hover {
+      transform: rotate(-3deg);
+    }
+    
+    &:active {
+      transform: scale(0.95) rotate(-3deg);
+    }
+  
+  }
+  
+  @keyframes shimmer {
+    to {
+      background-size: 100% 100%;
+      box-shadow: -2px -2px 6px rgba(255, 227, 126, 0.5), 2px 2px 6px rgba(144, 148, 255, 0.5);
+    }
+  }
+
+  .signout {
+    /* display: inline-block; */
+    /* padding: .75rem 1.25rem; */
+    border-radius: 10rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+    .signout:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      
+      border-radius: 10rem;
+      
+    }
+
+    .signout:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: #fff;
+      transition: all .3s;
+      border-radius: 10rem;
+      z-index: -1;
+    }
+    .signout:hover {
+      color: #3c3939;
+      background-color: #7fdeec;
+      
+    }
+  
